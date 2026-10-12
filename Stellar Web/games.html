@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="What Stellar plays: World of Warcraft raiding and Mythic+, Marvel Rivals, and community game nights.">
+  <meta name="theme-color" content="#0b0e1a">
+  <meta property="og:title" content="Games | Stellar">
+  <meta property="og:description" content="What Stellar plays: World of Warcraft raiding and Mythic+, Marvel Rivals, and community game nights.">
+  <meta property="og:image" content="images/stellar-logo.jpg">
+  <title>Games | Stellar</title>
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== HEADER ===== -->
+  <header id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Stellar home">
+        <img src="images/icon.png" alt="" class="logo-emblem" width="40" height="40">
+        <span class="logo-text">Stellar</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="games.html" class="nav-link active" aria-current="page">Games</a></li>
+          <li><a href="news.html" class="nav-link">News</a></li>
+          <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="header-controls">
+        <a href="#" data-discord-invite class="btn-primary" target="_blank" rel="noopener noreferrer"><svg class="discord-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Discord</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" type="button"
+        aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="games.html" class="active" aria-current="page">Games</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+      <div class="mobile-controls">
+        <a href="#" data-discord-invite class="btn-primary" target="_blank" rel="noopener noreferrer"><svg class="discord-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Join the Discord</a>
+      </div>
+    </nav>
+  </header>
+
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-inner">
+        <p class="section-tag">Where you'll find us</p>
+        <h1 class="page-hero-title" id="page-title">Our games</h1>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="page-hero-sub">World of Warcraft is home, but the community plays a lot more than that.</p>
+      </div>
+    </section>
+
+  <main id="main-content">
+
+    <section class="section-block" aria-label="Games">
+      <div class="section-inner">
+        <!-- EDIT: all game details are placeholders -->
+        <div class="game-row">
+          <div>
+            <p class="section-tag">Our home</p>
+            <h2 class="section-title">World of Warcraft</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p class="body-text">Where Stellar started. We raid as a guild every week and run keys whenever people are online.</p>
+          </div>
+          <ul class="check-list">
+            <li>Current-tier progression raiding with a focus on steady, clean improvement.</li>
+            <li>Mythic+ groups for every key level, from first-timers to high pushes.</li>
+            <li>Log reviews and class help for anyone who wants to improve.</li>
+            <li>Alt runs, old content farms, and achievement nights.</li>
+          </ul>
+        </div>
+
+        <div class="game-row">
+          <div>
+            <p class="section-tag">Hero shooter</p>
+            <h2 class="section-title">Marvel Rivals</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p class="body-text">A growing part of the community. Stacks form most evenings.</p>
+          </div>
+          <ul class="check-list">
+            <li>Six-stacks for ranked play.</li>
+            <li>Quick play for warming up and trying new heroes.</li>
+            <li>Comp planning and team-up practice.</li>
+          </ul>
+        </div>
+
+        <div class="game-row">
+          <div>
+            <p class="section-tag">Everything else</p>
+            <h2 class="section-title">Other games</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p class="body-text">If enough members are playing something, it gets a channel.</p>
+          </div>
+          <ul class="check-list">
+            <li>Community game nights with co-op and party games.</li>
+            <li>Launch-day sessions for big releases.</li>
+            <li>Suggest a game in the Discord to get people together.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block dark-section" aria-labelledby="schedule-heading">
+      <div class="section-inner">
+        <p class="section-tag">Weekly</p>
+        <h2 class="section-title" id="schedule-heading">Schedule</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <!-- EDIT: replace with your real schedule -->
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr><th scope="col">Day</th><th scope="col">Game</th><th scope="col">Activity</th><th scope="col">Time (EST)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tuesday</td><td>World of Warcraft</td><td>Guild raid</td><td>7:30 – 11:00 PM</td></tr>
+              <tr><td>Wednesday</td><td>World of Warcraft</td><td>Guild raid</td><td>7:30 – 11:00 PM</td></tr>
+              <tr><td>Thursday</td><td>Marvel Rivals</td><td>Ranked stacks</td><td>8:00 PM</td></tr>
+              <tr><td>Friday</td><td>Varies</td><td>Community game night</td><td>9:00 PM</td></tr>
+              <tr><td>Any day</td><td>World of Warcraft</td><td>Mythic+ keys</td><td>Whenever people are on</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" aria-labelledby="cta-heading">
+      <div class="cta-band">
+        <h2 class="section-title" id="cta-heading">Find your place among the stars</h2>
+        <div class="divider" aria-hidden="true" style="margin-left:auto;margin-right:auto"></div>
+        <p class="body-text">New players, returning players, and veterans are all welcome. Say hi in the Discord and we'll get you set up.</p>
+        <a href="#" data-discord-invite class="btn-primary btn-large" target="_blank" rel="noopener noreferrer"><svg class="discord-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg> Join the Discord</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer id="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo" aria-label="Stellar home">
+          <img src="images/icon.png" alt="" class="logo-emblem" width="40" height="40">
+          <span class="logo-text">Stellar</span>
+        </a>
+        <p class="footer-tagline">Train. Compete. Evolve.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <div class="footer-col">
+          <h2 class="footer-heading">Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="games.html">Games</a></li><li><a href="news.html">News</a></li><li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2 class="footer-heading">Connect</h2>
+          <ul>
+            <li><a href="#" data-discord-invite target="_blank" rel="noopener noreferrer">Discord</a></li>
+            <!-- EDIT: guild links, or remove -->
+            <li><a href="https://raider.io/" target="_blank" rel="noopener noreferrer">Raider.IO</a></li>
+            <li><a href="https://www.warcraftlogs.com/" target="_blank" rel="noopener noreferrer">Warcraft Logs</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Stellar. Not affiliated with Blizzard Entertainment, NetEase Games, or Marvel.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

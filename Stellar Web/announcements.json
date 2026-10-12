@@ -1,0 +1,30 @@
+{
+  "_note": "Placeholder posts. Once the Discord bot is set up, it will overwrite this file with real announcements.",
+  "updated": "2026-10-11T20:00:00Z",
+  "announcements": [
+    {
+      "id": "3",
+      "title": "Website launch",
+      "content": "Stellar has a website. Share it with anyone you think would be a good fit.\nFeedback goes in the suggestions channel.",
+      "author": "Stellar Officers",
+      "channel": "announcements",
+      "timestamp": "2026-10-11T19:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Raid schedule this week",
+      "content": "Tuesday and Wednesday, 7:30 PM EST. Have **flasks, food, and runes** ready before the first pull.",
+      "author": "Raid Lead",
+      "channel": "raid-info",
+      "timestamp": "2026-10-09T17:30:00Z"
+    },
+    {
+      "id": "1",
+      "title": "Marvel Rivals ranked night",
+      "content": "Stacks start Thursday at 8 PM EST. Drop your main role in the Rivals channel so we can build teams.",
+      "author": "Community Team",
+      "channel": "marvel-rivals",
+      "timestamp": "2026-10-07T22:00:00Z"
+    }
+  ]
+}
