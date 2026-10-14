@@ -519,6 +519,31 @@ main { padding-top: var(--header-h); }
 .cta-band .body-text { margin: 0 auto 2rem; }
 
 /* ============================================================
+   ROT PAGE
+   ============================================================ */
+.rot-section {
+  min-height: calc(100vh - var(--header-h));
+  min-height: calc(100svh - var(--header-h));
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+.rot-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(3rem, 14vw, 13rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #e4e2f5 45%, #a9a6c9 55%, #f2f0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 30px rgba(125,92,255,0.6));
+}
+
+/* ============================================================
    FOOTER
    ============================================================ */
 #site-footer { background: rgba(8,10,20,0.92); border-top: 1px solid var(--border-dim); }
